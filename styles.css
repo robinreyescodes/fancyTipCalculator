@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Space Mono";
+}
+
+:root {
+  /* Primary */
+  --strong-cyan: hsl(172, 67%, 45%);
+
+  /* Neutrals */
+  --background-light-cyan: hsl(185, 41%, 84%);
+  --white: hsl(0, 0%, 100%);
+  --very-light-gray-cyan: hsl(189, 41%, 97%);
+  --light-gray-cyan: hsl(185, 41%, 84%);
+  --gray-cyan: hsl(184, 14%, 56%);
+  --dark-grey-cyan: hsl(186, 14%, 43%);
+  --very-dark-cyan: hsl(183, 100%, 15%);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--background-light-cyan);
+  font-size: 2.4rem;
+}
+
+/* LOGO */
+
+#title {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 400;
+  text-align: center;
+}
+
+/* LEFT SIDE OF GRID */
+
+.left {
+  width: 300px;
+}
+/* text gets placed to right side of input  */
+.input-text {
+  text-align: right;
+  width: 100%;
+  padding: 0.4rem;
+}
+
+/* we can change this later */
+input:focus {
+  outline: none;
+  border: 2px solid var(--strong-cyan);
+  border-radius: 4px;
+  /* border: 1px solid blue; */
+}
+
+/* validation for number of people; if 0 then turns input red */
+.input-text:invalid {
+  border: 1px solid red;
+}
+
+/* for the $ and person symbols, gets placed on left side */
+.svg {
+  position: absolute;
+  margin-left: 0.5rem;
+}
+
+/* aligns symbol properly inside input box */
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+.tip-btns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.btn {
+  width: 8rem;
+  background-color: var(--very-dark-cyan);
+  color: white;
+  border: none;
+  padding: 0.4rem;
+  border-radius: 3px;
+  font-size: 2rem;
+}
+
+/* adjusting spacing of buttons to fit container */
+
+.btn:nth-child(2),
+.btn:nth-child(5) {
+  justify-self: center;
+}
+
+.btn:nth-child(3),
+.btn:last-child {
+  justify-self: end;
+}
+.btn:last-child {
+  font-size: 1.8rem;
+  text-align: center;
+  color: var(--very-dark-cyan);
+  background-color: var(--very-light-gray-cyan);
+}
