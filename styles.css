@@ -49,7 +49,7 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 350px 1fr;
   gap: 20px;
   max-width: 800px;
   padding: 20px 30px;
@@ -109,7 +109,7 @@ input:focus {
   background-color: var(--very-dark-cyan);
   color: white;
   border: none;
-  padding: 0.4rem;
+  padding: 1rem;
   border-radius: 3px;
   font-size: 2rem;
 }
@@ -126,7 +126,7 @@ input:focus {
   justify-self: end;
 }
 .btn:last-child {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   text-align: center;
   color: var(--very-dark-cyan);
   background-color: var(--very-light-gray-cyan);
