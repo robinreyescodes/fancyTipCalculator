@@ -76,14 +76,14 @@ body {
 /* we can change this later */
 .input:focus {
   outline: none;
-  border: 2px solid var(--strong-cyan);
+  box-shadow: inset 0px 0px 0px 1px var(--strong-cyan);
   border-radius: 4px;
   /* border: 1px solid blue; */
 }
 
 /* validation for number of people; if 0 then turns input red */
 .input-text:invalid {
-  border: 2px solid red;
+  box-shadow: inset 0px 0px 0px 1px red;
   border-radius: 4px;
 }
 
