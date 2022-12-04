@@ -52,7 +52,7 @@
                 type="text"
                 name="bill"
                 id="bill-input"
-                class="input-text"
+                class="input-text input"
               />
             </div>
 
@@ -65,7 +65,12 @@
 
               <input name="tip" class="btn" type="button" value="25%" />
               <input name="tip" class="btn" type="button" value="50%" />
-              <input name="tip" class="btn" type="text" placeholder="custom" />
+              <input
+                name="tip"
+                class="btn custom"
+                type="text"
+                placeholder="custom"
+              />
             </div>
 
             <label for="number-of-people" class="label-text"
@@ -86,7 +91,8 @@
               </svg>
               <input
                 name="number-of-people"
-                class="input-text"
+                class="input-text input"
+                id="people-input"
                 type="text"
                 pattern="[1-9]+"
               />
@@ -101,14 +107,14 @@
                 <p class="tip-amount-text">Tip amount</p>
                 <p class="person">/ person</p>
               </div>
-              <p class="amount">$0.00</p>
+              <p class="amount tip-amount">$0.00</p>
             </div>
             <div class="tip-text">
               <div>
                 <p class="tip-amount-text">Total</p>
                 <p class="person">/ person</p>
               </div>
-              <p class="amount">$0.00</p>
+              <p class="amount total-amount">$0.00</p>
             </div>
           </div>
 
