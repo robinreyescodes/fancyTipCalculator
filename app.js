@@ -2,7 +2,7 @@ const billInput = document.querySelector("#bill-input");
 const peopleInput = document.querySelector("#people-input");
 const tipAmount = document.querySelector(".tip-amount");
 const totalAmount = document.querySelector(".total-amount");
-// const tipBtns = document.querySelectorAll(".btn");
+const customTip = document.querySelector(".custom");
 const tipBtns = document.querySelector(".tip-btns");
 const buttons = document.querySelectorAll(".btn");
 const aBtn = document.querySelector(".btn");
@@ -31,15 +31,28 @@ tipBtns.addEventListener("click", (e) => {
     //get rid of style on any btns that have it
     //store tip percent in variable
     tipTotal = billValue * Number(e.target.value.slice(0, -1) / 100);
-    console.log(tipTotal);
+  }
+  //if user inputs custom tip percentage
+  if (e.target.classList.contains("custom")) {
+    customTip.addEventListener("keyup", (e) => {
+      tipTotal = (billValue * Number(e.target.value)) / 100;
+    });
   }
 });
 
 //gets how many ways the bill needs to be split in
 peopleInput.addEventListener("keyup", (e) => {
+  if (e.target.value == "") {
+    totalAmount.textContent = "$0.00";
+    tipAmount.textContent = "$0.00";
+  }
+  //stores user input for people in variable
   peopleValue = Number(e.target.value);
+  //calculate tip per person
   tipPerPerson = tipTotal / peopleValue;
+  //change UI of tip amount per person
   tipAmount.textContent = `$${tipPerPerson.toFixed(2)}`;
+  //change UI of total amount per person
   totalAmount.textContent = `$${((billValue + tipTotal) / peopleValue).toFixed(
     2
   )}`;
