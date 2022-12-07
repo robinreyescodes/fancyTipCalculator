@@ -4,6 +4,7 @@ const tipAmount = document.querySelector(".tip-amount");
 const totalAmount = document.querySelector(".total-amount");
 // const tipBtns = document.querySelectorAll(".btn");
 const tipBtns = document.querySelector(".tip-btns");
+const buttons = document.querySelectorAll(".btn");
 const aBtn = document.querySelector(".btn");
 const resetBtn = document.querySelector(".reset-btn");
 let tipPerPerson = 0;
@@ -21,12 +22,17 @@ billInput.addEventListener("keyup", (e) => {
 
 //gives clickability and function for each of the tip buttons
 
+//USED EVENT DELEGATION/BUBBLING TO MAKE THIS BLOCK OF CODE SO MUCH CLEANER AND SIMPLER!
 tipBtns.addEventListener("click", (e) => {
-  //style changes when btn clicked
-  e.target.classList.toggle("btn-active");
-  //store tip percent in variable
-  tipTotal = billValue * Number(e.target.value.slice(0, -1) / 100);
-  console.log(tipTotal);
+  if (e.target.classList.contains("btn")) {
+    buttons.forEach((btn) => btn.classList.remove("btn-active"));
+    //style changes when btn clicked
+    e.target.classList.toggle("btn-active");
+    //get rid of style on any btns that have it
+    //store tip percent in variable
+    tipTotal = billValue * Number(e.target.value.slice(0, -1) / 100);
+    console.log(tipTotal);
+  }
 });
 
 //gets how many ways the bill needs to be split in
@@ -41,7 +47,7 @@ peopleInput.addEventListener("keyup", (e) => {
 
 //resets all the values
 resetBtn.addEventListener("click", () => {
-  // tipBtns.forEach((btn) => btn.classList.remove("btn-active"));
+  buttons.forEach((btn) => btn.classList.remove("btn-active"));
   billInput.value = "";
   peopleInput.value = "";
   totalAmount.textContent = "$0.00";
